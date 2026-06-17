@@ -21,6 +21,68 @@ export const images = {
   pages: {
     nosotros: `${base}/home/about-quienes-detalles.jpg`,
     contacto: `${base}/home/about-como-trabajamos.jpg`,
+    proyectos: `${base}/home/about-que-sala.jpg`,
+    hogares: `${base}/portfolio/cover-hogares.jpg`,
+    comercial: `${base}/portfolio/cover-comercial.jpg`,
+  },
+  portfolio: {
+    coverHogares: `${base}/portfolio/cover-hogares.jpg`,
+    coverComercial: `${base}/portfolio/cover-comercial.jpg`,
+    hogares: {
+      salas: [
+        `${base}/portfolio/hogares/salas-01-full.jpg`,
+        `${base}/portfolio/hogares/salas-02-full.jpg`,
+        `${base}/portfolio/hogares/salas-03-full.jpg`,
+        `${base}/portfolio/hogares/salas-04-full.jpg`,
+        `${base}/portfolio/hogares/salas-05-full.jpg`,
+        `${base}/portfolio/hogares/salas-06-full.jpg`,
+        `${base}/portfolio/hogares/salas-07-full.jpg`,
+      ],
+      comedores: [
+        `${base}/portfolio/hogares/comedores-01-full.jpeg`,
+        `${base}/portfolio/hogares/comedores-02-full.jpeg`,
+        `${base}/portfolio/hogares/comedores-03-full.jpeg`,
+        `${base}/portfolio/hogares/comedores-04-full.jpg`,
+        `${base}/portfolio/hogares/comedores-05-full.jpg`,
+        `${base}/portfolio/hogares/comedores-06-full.jpg`,
+      ],
+      recamaras: [
+        `${base}/portfolio/hogares/recamaras-01-full.jpg`,
+        `${base}/portfolio/hogares/recamaras-02-full.jpg`,
+        `${base}/portfolio/hogares/recamaras-03-full.jpeg`,
+        `${base}/portfolio/hogares/recamaras-04-full.jpg`,
+        `${base}/portfolio/hogares/recamaras-05-full.jpg`,
+      ],
+      cocinas: [
+        `${base}/portfolio/hogares/cocinas-01-full.jpg`,
+        `${base}/portfolio/hogares/cocinas-02-full.jpg`,
+        `${base}/portfolio/hogares/cocinas-03-full.jpg`,
+        `${base}/portfolio/hogares/cocinas-04-full.jpg`,
+      ],
+      exteriores: [
+        `${base}/portfolio/hogares/exteriores-01-full.jpeg`,
+        `${base}/portfolio/hogares/exteriores-02-full.jpg`,
+        `${base}/portfolio/hogares/exteriores-03-full.jpeg`,
+        `${base}/portfolio/hogares/exteriores-04-full.jpg`,
+        `${base}/portfolio/hogares/exteriores-05-full.jpg`,
+        `${base}/portfolio/hogares/exteriores-06-full.jpg`,
+      ],
+    },
+    comercial: {
+      restaurantes: [
+        `${base}/portfolio/comercial/restaurantes-01-full.jpg`,
+        `${base}/portfolio/comercial/restaurantes-02-full.jpg`,
+        `${base}/portfolio/comercial/restaurantes-03-full.jpg`,
+        `${base}/portfolio/comercial/restaurantes-04-full.jpg`,
+      ],
+      tiendas: [
+        `${base}/portfolio/comercial/tiendas-01-full.jpg`,
+        `${base}/portfolio/comercial/tiendas-02-full.jpeg`,
+        `${base}/portfolio/comercial/tiendas-03-full.jpg`,
+        `${base}/portfolio/comercial/tiendas-04-full.jpg`,
+        `${base}/portfolio/comercial/tiendas-05-full.jpg`,
+      ],
+    },
   },
   nosotros: {
     sillas: {

@@ -18,6 +18,6 @@ export const socialLinks = [
 
 export const navLinks = [
   { label: 'Nosotros', href: '/nosotros' },
-  { label: 'Proyectos', href: '/proyectos', disabled: true },
+  { label: 'Proyectos', href: '/proyectos' },
   { label: 'Contacto', href: '/contacto' },
 ]
