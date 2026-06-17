@@ -1,12 +1,25 @@
-import { useEffect, useRef, useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
+
+function isInViewport(element, threshold = 0.12) {
+  const rect = element.getBoundingClientRect()
+  const viewportHeight = window.innerHeight || document.documentElement.clientHeight
+  const visibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0)
+  const ratio = visibleHeight / Math.max(rect.height, 1)
+  return ratio >= threshold
+}
 
 export function useRevealOnScroll({ threshold = 0.12, once = true } = {}) {
   const ref = useRef(null)
   const [visible, setVisible] = useState(false)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const element = ref.current
     if (!element) return
+
+    if (isInViewport(element, threshold)) {
+      setVisible(true)
+      if (once) return
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {

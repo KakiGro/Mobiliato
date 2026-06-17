@@ -6,7 +6,7 @@ import { useHeroScrollFade } from '@/hooks/useHeroScrollFade'
 import { cn } from '@/lib/utils'
 
 export function HeroSection({ title, cta, image, imageAlt }) {
-  const { ref, progress, opacity, isVisible } = useHeroScrollFade()
+  const { ref, progress, opacity } = useHeroScrollFade()
   const contentShift = progress * 48
   const [fixedBackground, setFixedBackground] = useState(true)
 
@@ -20,12 +20,14 @@ export function HeroSection({ title, cta, image, imageAlt }) {
 
   return (
     <section ref={ref} className="relative bg-background">
-      {isVisible && (
-        <div
-          className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
-          style={{ opacity }}
-          aria-hidden
-        >
+      <div
+        className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
+        style={{
+          opacity,
+          visibility: opacity <= 0 ? 'hidden' : 'visible',
+        }}
+        aria-hidden
+      >
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
             style={{
@@ -35,8 +37,7 @@ export function HeroSection({ title, cta, image, imageAlt }) {
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-forest/70 via-forest/20 to-transparent" />
-        </div>
-      )}
+      </div>
 
       <Container
         className="relative z-10 flex min-h-[92svh] items-center py-28 md:min-h-[100svh] md:py-32"
