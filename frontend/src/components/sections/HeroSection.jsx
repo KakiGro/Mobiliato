@@ -47,9 +47,6 @@ export function HeroSection({ title, cta, image, imageAlt }) {
         }}
       >
         <div className="max-w-2xl">
-          <span className="mb-5 block text-sm font-semibold uppercase tracking-[0.2em] text-accent">
-            Mobiliato
-          </span>
           <h1
             className={cn(
               'font-serif text-5xl leading-[1.05] text-bone md:text-7xl lg:text-8xl',

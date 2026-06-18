@@ -52,7 +52,7 @@ export function SiteHeader() {
           <img
             src={images.brand.logo}
             alt="Mobiliato"
-            className="h-11 w-auto md:h-16"
+            className="h-12 w-auto md:h-18"
           />
         </Link>
 

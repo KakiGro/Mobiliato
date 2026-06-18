@@ -3,7 +3,7 @@ const base = '/images'
 export const images = {
   brand: {
     logo: `${base}/brand/logo-mobiliato.png`,
-    favicon: `${base}/brand/favicon.png`,
+    favicon: `${base}/brand/favicon.svg`,
     menu: `${base}/brand/icon-menu.png`,
     social: {
       facebook: `${base}/brand/social-facebook.svg`,
@@ -12,7 +12,7 @@ export const images = {
     },
   },
   home: {
-    hero: `${base}/home/hero-detalles.jpg`,
+    hero: `${base}/home/hero-detalles.png`,
     aboutQuienes: `${base}/home/about-quienes-detalles.jpg`,
     aboutQue: `${base}/home/about-que-sala.jpg`,
     aboutComo: `${base}/home/about-como-trabajamos.jpg`,
