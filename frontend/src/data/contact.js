@@ -12,7 +12,7 @@ export const contactContent = {
     imageAlt: 'Espacio de trabajo y diseño Mobiliato',
   },
   form: {
-    action: 'https://formsubmit.co/inakigro@gmail.com',
+    subject: 'Nuevo contacto Mobiliato',
     fields: {
       name: { label: 'Nombre', placeholder: 'Ingresa tu nombre' },
       email: { label: 'Correo electrónico', placeholder: 'Ingresa tu correo electrónico' },

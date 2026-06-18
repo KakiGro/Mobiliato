@@ -14,18 +14,28 @@ export function ContactSection({ form, details, features }) {
     event.preventDefault()
     setStatus('loading')
 
-    const formData = new FormData(event.currentTarget)
+    const formElement = event.currentTarget
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY
+    if (!accessKey) {
+      setStatus('error')
+      return
+    }
+
+    const formData = new FormData(formElement)
+    formData.append('access_key', accessKey)
+    formData.append('subject', form.subject)
 
     try {
-      const response = await fetch(form.action, {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: formData,
-        headers: { Accept: 'application/json' },
       })
 
-      if (response.ok) {
+      const data = await response.json()
+
+      if (data.success) {
+        formElement.reset()
         setStatus('success')
-        event.currentTarget.reset()
       } else {
         setStatus('error')
       }
@@ -99,9 +109,6 @@ export function ContactSection({ form, details, features }) {
           <Card className="rounded-lg border border-border shadow-2xl shadow-primary/5">
             <CardContent className="p-8 md:p-12">
               <form className="space-y-8" onSubmit={handleSubmit}>
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_subject" value="Nuevo contacto Mobiliato" />
-
                 <div className="space-y-2">
                   <Label htmlFor="name">{form.fields.name.label}</Label>
                   <Input
