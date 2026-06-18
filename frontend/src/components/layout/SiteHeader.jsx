@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import {
   Sheet,
   SheetContent,
+  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -45,13 +46,13 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/90 shadow-sm backdrop-blur-sm">
-      <Container className="flex h-[5.5rem] items-center justify-between">
+    <header className="fixed top-0 z-50 w-full border-b border-border/40 bg-background/95 shadow-sm backdrop-blur-md supports-backdrop-filter:bg-background/80">
+      <Container className="flex h-16 items-center justify-between gap-3 md:h-[5.5rem] md:gap-4">
         <Link to="/" className="shrink-0">
           <img
             src={images.brand.logo}
             alt="Mobiliato"
-            className="h-11 w-auto md:h-14"
+            className="h-11 w-auto md:h-16"
           />
         </Link>
 
@@ -87,7 +88,7 @@ export function SiteHeader() {
           )}
         </nav>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 md:gap-4">
           <div className="hidden items-center gap-1 md:flex">
             {socialLinks.map((link) => (
               <SocialIcon key={link.name} link={link} variant="header" />
@@ -96,51 +97,78 @@ export function SiteHeader() {
           <Button asChild className="hidden md:inline-flex">
             <Link to="/contacto">Contáctanos</Link>
           </Button>
+          <Button asChild size="sm" className="md:hidden">
+            <Link to="/contacto">Contacto</Link>
+          </Button>
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
+              <Button
+                variant="outline"
+                size="icon"
+                className="size-10 shrink-0 md:hidden"
+              >
                 <Menu className="size-5" />
                 <span className="sr-only">Abrir menú</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px]">
-              <SheetHeader>
-                <SheetTitle className="font-serif text-left text-2xl">
-                  Mobiliato
-                </SheetTitle>
+            <SheetContent
+              side="right"
+              className="flex w-full max-w-xs flex-col gap-0 p-0 sm:max-w-sm"
+            >
+              <SheetHeader className="border-b border-border px-6 py-5">
+                <Link to="/" onClick={() => setOpen(false)}>
+                  <img
+                    src={images.brand.logo}
+                    alt="Mobiliato"
+                    className="h-10 w-auto"
+                  />
+                </Link>
+                <SheetTitle className="sr-only">Menú de navegación</SheetTitle>
               </SheetHeader>
-              <nav className="mt-8 flex flex-col gap-4">
+              <nav className="flex flex-1 flex-col px-3 py-4">
                 {navLinks.map((link) =>
                   link.disabled ? (
                     <span
                       key={link.href}
-                      className="text-muted-foreground/60"
+                      className="px-3 py-3.5 text-lg text-muted-foreground/60"
                     >
-                      {link.label} (próximamente)
+                      {link.label}
+                      <span className="ml-2 text-xs uppercase tracking-wider text-accent">
+                        pronto
+                      </span>
                     </span>
                   ) : (
-                    <Link
+                    <NavLink
                       key={link.href}
                       to={link.href}
                       onClick={() => setOpen(false)}
-                      className="text-xl font-medium"
+                      className={({ isActive }) =>
+                        cn(
+                          'rounded-sm px-3 py-3.5 text-lg font-medium transition-colors',
+                          isActive
+                            ? 'bg-secondary text-foreground'
+                            : 'text-foreground hover:bg-secondary/60',
+                        )
+                      }
                     >
                       {link.label}
-                    </Link>
+                    </NavLink>
                   ),
                 )}
               </nav>
-              <div className="mt-8 flex gap-2">
-                {socialLinks.map((link) => (
-                  <SocialIcon key={link.name} link={link} variant="sheet" />
-                ))}
-              </div>
-              <Button asChild className="mt-8 w-full">
-                <Link to="/contacto" onClick={() => setOpen(false)}>
-                  Contáctanos
-                </Link>
-              </Button>
+              <SheetFooter className="gap-4 border-t border-border px-6 py-6">
+                <div className="flex justify-center gap-1">
+                  {socialLinks.map((link) => (
+                    <SocialIcon key={link.name} link={link} variant="sheet" />
+                  ))}
+                </div>
+                <Button asChild className="w-full">
+                  <Link to="/contacto" onClick={() => setOpen(false)}>
+                    Contáctanos
+                  </Link>
+                </Button>
+              </SheetFooter>
             </SheetContent>
           </Sheet>
         </div>

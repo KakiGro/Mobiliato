@@ -6,7 +6,7 @@ export function SiteLayout() {
   return (
     <div className="flex min-h-svh flex-col">
       <SiteHeader />
-      <main className="relative flex-1 pt-[5.5rem]">
+      <main className="relative flex-1 pt-16 md:pt-[5.5rem]">
         <PageTransition />
       </main>
       <SiteFooter />
